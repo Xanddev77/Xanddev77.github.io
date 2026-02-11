@@ -217,4 +217,5 @@ gsap.from(".contact-footer", {
     trigger: ".contact",
     start: "top 80%"
   }
+
 });
