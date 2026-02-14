@@ -395,3 +395,20 @@ body {
     gap: 20px;
   }
 }
+body.invert {
+  --black: #fff;
+  --white: #000;
+  --gray: #b5b5b5;
+}
+
+body,
+* {
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.logo {
+  cursor: pointer;
+}
