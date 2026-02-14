@@ -1,4 +1,12 @@
-// Animação inicial (entrada da página)
+=============================
+   REGISTRO DE PLUGIN
+=============================
+gsap.registerPlugin(ScrollTrigger);
+
+=============================
+   ANIMAÇÃO INICIAL 
+=============================
+
 gsap.from(".navbar", {
   y: -50,
   opacity: 0,
@@ -50,7 +58,10 @@ gsap.from(".scroll", {
   delay: 1.6
 });
 
-// Área visual
+=========================
+   HERO VISUAL 
+=========================
+
 gsap.from(".visual-box", {
   scale: 0.8,
   opacity: 0,
@@ -66,10 +77,11 @@ gsap.from(".tag", {
   delay: 1.4,
   stagger: 0.3
 });
-// Ativa o plugin
-gsap.registerPlugin(ScrollTrigger);
 
-// Caixa visual (movimento lento)
+=====================
+   PARALLAX
+=====================
+
 gsap.to(".visual-box", {
   y: 120,
   ease: "none",
@@ -81,7 +93,6 @@ gsap.to(".visual-box", {
   }
 });
 
-// Tags flutuantes (movimento oposto)
 gsap.to(".tag.top", {
   y: -80,
   ease: "none",
@@ -103,9 +114,10 @@ gsap.to(".tag.bottom", {
     scrub: true
   }
 });
-/* ===============================
-   ANIMAÇÃO – PROJETOS
-================================ */
+
+===============================
+   PROJETOS 
+===============================
 
 gsap.from(".projects-header h2", {
   y: 60,
@@ -113,7 +125,8 @@ gsap.from(".projects-header h2", {
   duration: 1,
   scrollTrigger: {
     trigger: ".projects",
-    start: "top 80%"
+    start: "top 80%",
+    toggleActions: "play reverse play reverse"
   }
 });
 
@@ -124,7 +137,8 @@ gsap.from(".projects-header p", {
   delay: 0.2,
   scrollTrigger: {
     trigger: ".projects",
-    start: "top 80%"
+    start: "top 80%",
+    toggleActions: "play reverse play reverse"
   }
 });
 
@@ -135,12 +149,14 @@ gsap.from(".project-card", {
   stagger: 0.2,
   scrollTrigger: {
     trigger: ".projects-grid",
-    start: "top 85%"
+    start: "top 85%",
+    toggleActions: "play reverse play reverse"
   }
 });
-/* ===============================
-   ANIMAÇÃO – SOBRE / EXPERIÊNCIA
-================================ */
+
+=============================
+   SOBRE / EXPERIÊNCIA
+=============================
 
 gsap.from(".about-text h2", {
   y: 60,
@@ -148,7 +164,8 @@ gsap.from(".about-text h2", {
   duration: 1,
   scrollTrigger: {
     trigger: ".about",
-    start: "top 80%"
+    start: "top 80%",
+    toggleActions: "play reverse play reverse"
   }
 });
 
@@ -159,7 +176,8 @@ gsap.from(".about-description", {
   stagger: 0.2,
   scrollTrigger: {
     trigger: ".about",
-    start: "top 80%"
+    start: "top 80%",
+    toggleActions: "play reverse play reverse"
   }
 });
 
@@ -170,12 +188,14 @@ gsap.from(".exp-item", {
   stagger: 0.2,
   scrollTrigger: {
     trigger: ".about-exp",
-    start: "top 85%"
+    start: "top 85%",
+    toggleActions: "play reverse play reverse"
   }
 });
-/* ===============================
-   ANIMAÇÃO – CONTATO
-================================ */
+
+===============================
+   CONTATO (LOOP)
+===============================
 
 gsap.from(".contact-content h2", {
   y: 60,
@@ -183,7 +203,8 @@ gsap.from(".contact-content h2", {
   duration: 1,
   scrollTrigger: {
     trigger: ".contact",
-    start: "top 80%"
+    start: "top 80%",
+    toggleActions: "play reverse play reverse"
   }
 });
 
@@ -194,7 +215,8 @@ gsap.from(".contact-text", {
   delay: 0.2,
   scrollTrigger: {
     trigger: ".contact",
-    start: "top 80%"
+    start: "top 80%",
+    toggleActions: "play reverse play reverse"
   }
 });
 
@@ -205,7 +227,8 @@ gsap.from(".contact-links a", {
   stagger: 0.2,
   scrollTrigger: {
     trigger: ".contact-links",
-    start: "top 85%"
+    start: "top 85%",
+    toggleActions: "play reverse play reverse"
   }
 });
 
@@ -215,7 +238,29 @@ gsap.from(".contact-footer", {
   delay: 0.4,
   scrollTrigger: {
     trigger: ".contact",
-    start: "top 80%"
+    start: "top 80%",
+    toggleActions: "play reverse play reverse"
   }
+});
 
+===============================
+   INVERTER PRETO ↔ BRANCO
+================================ 
+
+const invertToggle = document.querySelector(".logo");
+
+invertToggle.addEventListener("click", () => {
+  document.body.classList.toggle("invert");
+
+  gsap.fromTo(
+    invertToggle,
+    { scale: 1 },
+    {
+      scale: 0.9,
+      duration: 0.15,
+      yoyo: true,
+      repeat: 1,
+      ease: "power2.inOut"
+    }
+  );
 });
