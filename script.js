@@ -264,3 +264,37 @@ invertToggle.addEventListener("click", () => {
     }
   );
 });
+/* ===============================
+   LOOP TEXTO (FRONT-END ↔ DEVOPS)
+================================ */
+
+const roles = [
+  "Desenvolvedor Front-end",
+  "UI/UX","Interfaces Performática"
+];
+
+let roleIndex = 0;
+const roleEl = document.getElementById("role");
+
+gsap.timeline({ repeat: -1 })
+  .to(roleEl, {
+    opacity: 0,
+    y: -10,
+    duration: 0.4,
+    delay: 2,
+    ease: "power2.in"
+  })
+  .call(() => {
+    roleIndex = (roleIndex + 1) % roles.length;
+    roleEl.textContent = roles[roleIndex];
+  })
+  .fromTo(
+    roleEl,
+    { opacity: 0, y: 10 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.4,
+      ease: "power4.out"
+    }
+  );
